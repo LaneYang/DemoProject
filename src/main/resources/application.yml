@@ -1,0 +1,24 @@
+spring:
+  profiles:
+    active: local
+
+  main:
+    allow-bean-definition-overriding: true
+
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    database: 0
+
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://localhost:7000/ecommerce?useSSL=false
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
+
+mybatis:
+  mapper-locations: classpath:mapper/*Mapper.xml
+
+server:
+  port: 8080
