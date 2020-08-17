@@ -19,8 +19,6 @@ public class User {
 
     private String password;
 
-    private long memberId;
-
     private long money;
 
     private String email;

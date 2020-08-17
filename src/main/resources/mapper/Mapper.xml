@@ -5,5 +5,32 @@
 
 
 <mapper namespace="com.os.dao.UserRepository">
+    <insert id="registerAccount" statementType="PREPARED">
+        insert into user (username, password, money, email) values (#{username}, #{password}, 0, #{email})
+    </insert>
+
+    <select id="userLoginIn" resultType="String">
+        select password from user where username = #{username}
+    </select>
+
+    <update id="rechargeAccount" statementType="PREPARED">
+        update user set money = #{money} where username = #{username}
+    </update>
+
+    <select id="checkMoney" resultType="Long">
+        select money from user where username = #{username}
+    </select>
+
+    <update id="updatePassword" statementType="PREPARED">
+        update user set password = #{password} where username = #{username}
+    </update>
+
+    <select id="checkEmailExists" resultType="Long">
+        select count(*) from user where email = #{email}
+    </select>
+
+    <select id="findPassword" resultType="String">
+        select password from user where email = #{email}
+    </select>
 
 </mapper>
